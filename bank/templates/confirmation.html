@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Money Transfered | Basic Banking System App{% endblock title %}
+{% block transferactive %}active{% endblock transferactive %}
+
+{% block style %}
+<style>
+  body{
+    background-image:url('https://images.unsplash.com/photo-1488998527040-85054a85150e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+        .table {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+            h1{
+              color:#00001a;
+              font-weight:bold;
+              font-family: "Times New Roman", Times, serif;
+              font-size:50px;
+              font-style:italic
+
+            }
+            /* p{
+
+              font-family: "Times New Roman", Times, serif;
+
+            } */
+
+
+
+        th,td{  border: 2px solid black;
+          pading: 10px;
+        }
+
+</style>
+{% endblock style %}
+
+{% block body %}
+{% if status %}
+<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+    <strong>Transaction Succesful!</strong> Amount of  <strong>{{credit}}</strong> have been sent to <strong> {{recipient}}</strong> from <strong>{{name}}</strong> :)
+
+{% else %}
+<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+    <strong>Error:</strong> Cannot send {{credit}} money as {{name}} doesn't have sufficient amount to send :(
+{% endif %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container my-3">
+    <h1 class="text-center" >Transaction Details :</h1>
+    
+    <div class="container my-3 mt-3 userlist">
+      <div class="table-responsive">
+
+      <table class="table table-hover table-dark  my-5 mb-5 pb-5">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Name</th>
+                    <th scope="col">Designation</th>
+                      <th scope="col">Age</th>
+                    <th scope="col">Email-Id</th>
+                    <th scope="col">Amount Credited</th>
+                      <th scope="col">Amount Debited</th>
+                    <th scope="col">Final Amount</th>
+
+              </tr>
+          </thead>
+          <tbody>
+            {% for userr in users %}
+            {% ifequal recipient userr.name %}
+
+              <!-- {% for user in users %}
+              <tr>
+                  <td style=font-weight:bold;font-style:italic>{{user.name}}</td>
+                  <td style=font-weight:bold;font-style:italic>{{user.email}}</td>
+                  <td style=font-weight:bold;font-style:italic>{{user.current_credit}}</td>
+              </tr>
+              {% endfor %} -->
+               <tr>
+                <td style=font-weight:bold;font-style:italic>{{userr.name}}</td>
+                  <td style=color:#09ed37;font-weight:bold;font-style:italic>{{"Reciever"}}</td>
+                  <td style=font-weight:bold;font-style:italic>{{userr.age}}</td>
+                <td style=font-weight:bold;font-style:italic>{{userr.email}}</td>
+                <td style=color:#09ed37;font-weight:bold;font-style:italic>{{credit}}</td>
+                <td style=color:#ed0909;font-weight:bold;font-style:italic>{{0}}</td>
+                <td style=font-weight:bold;font-style:italic>{{userr.current_credit}}</td>
+
+
+  </tr>
+  {%endifequal%}
+  {% ifequal name userr.name %}
+
+
+    <tr>
+      <td style=font-weight:bold;font-style:italic;>{{userr.name}}</td>
+        <td style=color:#ed0909;font-weight:bold;font-style:italic>{{"Sender"}}</td>
+          <td style=font-weight:bold;font-style:italic>{{userr.age}}</td>
+      <td style=font-weight:bold;font-style:italic>{{userr.email}}</td>
+      <td style=color:#09ed37;font-weight:bold;font-style:italic>{{0}}</td>
+      <td style=color:#ed0909;font-weight:bold;font-style:italic>{{credit}}</td>
+      <td style=;font-weight:bold;font-style:italic>{{userr.current_credit}}</td>
+
+
+  </tr>
+
+
+{%endifequal%}
+  {% endfor %}
+
+          </tbody>
+      </table>
+    </div>
+
+      <hr>
+          <h1 class="text-center" >User Account List</h1>
+          <p class="text-center" style= "color:#00001a;font-size:20px;font-weight:bold;"">List of user final details after transfer of money from one user to another user :</p>
+<div class="table-responsive">
+        <table class="table table-hover table-dark  my-5 mb-5 pb-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                      <th scope="col">Age</th>
+                    <th scope="col">Email-Id</th>
+                    <th scope="col">Final Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td style=font-weight:bold;font-style:italic;text-color:white>{{user.name}}</td>
+                      <td style=font-weight:bold;font-style:italic>{{user.age}}</td>
+                    <td style=font-weight:bold;font-style:italic>{{user.email}}</td>
+                    <td style=font-weight:bold;font-style:italic>{{user.current_credit}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+      </div>
+
+
+  </div>
+
+</div>
+{% endblock body %}

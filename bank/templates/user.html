@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{user.name}} |  Basic Banking System App{% endblock title %}
+{% block transferactive %}active{% endblock transferactive %}
+
+{% block style %}
+<style>
+  /* .bb{
+     /* background-image:url(https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+     -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+   background-position: fixed;
+   background-size: 100%; */
+
+  body {
+  background-image: url('https://images.unsplash.com/photo-1423666523292-b458da343f6a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OXx8YmFua3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+background-repeat: no-repeat;
+background-size: cover;
+}
+h2{
+  text-align: center;
+  font-weight:bold;
+  color:#ccccff;
+  font-family: "Times New Roman", Times, serif;
+  font-size:50px;
+  font-style:italic
+}
+.my-1234{
+  font-weight:bold;
+  text-align: left;
+  color:white;
+
+}
+h5{
+
+    color:black;
+}
+.nn{
+    color:black;
+}
+th,td{  border: 4px solid black;
+  pading: 10px;
+}
+
+
+/* style=" ;font-weight:bold ;font-family:georgia,garamond,serif;font-size340px;font-style:italic;" */
+
+</style>
+{% endblock style %}
+
+
+{% block body %}
+
+<div class="bb" height: 100%">
+    <div class="card-body">
+        <h2> Sender Details</h2>
+        <div class="table-responsive">
+          <table class="table table-hover table-dark  my-5 mb-5 pb-5">
+              <thead class="thead-dark">
+                  <tr >
+
+                      <th  scope="col">Name</th>
+                      <th scope="col">Age</th>
+                        <th scope="col">Email-Id</th>
+                      <th scope="col">Current Balance</th>
+
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td style=font-weight:bold;font-style:italic>{{user.name}}</td>
+                      <td style=font-weight:bold;font-style:italic>{{user.age}}</td>
+                        <td style=font-weight:bold;font-style:italic>{{user.email}}</td>
+                      <td style=font-weight:bold;font-style:italic>{{user.current_credit}}</td>
+
+                  </tr>
+              </tbody>
+          </table>
+            </div>
+        <div class="jumbotron text-center" style= "background-color:#0d0d0d;
+        width: 50%;border: 0.08em solid black;margin: 10px auto;
+  display: flex;">
+    <div class="container">
+          <h4 class= "head" style="color:#80ffbf">How much do you want to send:</h4>
+          <p style="color:#80ffbf"> We provide you to instant send the money to another user you want.</p>
+            <button class="btn btn-dark " type="button" data-toggle="collapse" data-target="#details"
+                aria-expanded="false" aria-controls="collapseExample" title="Transfer money now!">
+                Transfer Money To Another User
+            </button>
+            <div class="collapse my-2 userform"  id="details">
+                <div class="card card-body" style= "background-color:#cccccc;">
+                    <form action="/user/{{user.name}}/confirmation" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group row" style=font>
+                            <label class="col-sm-3 col-form-label text-right">Reciever<span></span>:</label>
+                            <select required class="form-control col-sm-8" id="recipient" name="recipient">
+                                <option selected></option>
+                                {% for usr in users %}
+                                {% ifnotequal usr.name user.name %}
+                                <option>{{usr.name}}</option>
+                                {% endifnotequal %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Amount of Money<span></span>:</label>
+                            <input class="col-sm-8" type="number" id="credit" name="credit" required>
+                        </div>
+                        <div>
+      <input type="checkbox"  id="myCheck" name="myCheck" onclick="myFunction()" >
+      <label for="myCheck"> : Are you sure to continue the transaction</label>
+      <p id="text" style="display:none">CONFIRMED!</p>
+
+  </div>
+                        <button type="submit" class="btn btn-dark">Transfer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock body %}

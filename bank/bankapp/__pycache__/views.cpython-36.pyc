@@ -1,0 +1,17 @@
+3
+[._|  ã               @   s@   d dl mZmZ d dlmZ dd„ Zdd„ Zdd„ Zd	d
+„ ZdS )é    )ÚrenderÚHttpResponse)ÚUserc             C   s
+   t | dƒS )Nz
+index.html)r   )Úrequest© r   úEC:\Users\diksh\django projects\creditTransferManager\manager\views.pyÚhome   s    r   c             C   s   t jjƒ }d|i}t| d|ƒS )NÚusersztransfer.html)r   ÚobjectsÚallr   )r   r	   Úcontextr   r   r   Útransfer_credit   s    
+r   c             C   s2   t jjƒ }t jj|djƒ }||dœ}t| d|ƒS )N)Úname)Úuserr	   z	user.html)r   r
+   r   ÚfilterÚfirstr   )r   r   r	   r   r   r   r   r   r      s
+    
+r   c             C   sÒ   | j jdƒ}| j jdƒ}tjj|djƒ }tjj|djƒ }|jt|ƒ }|jt|ƒ }|jt|ƒkr¨d}tjj|jd}	||	_|	j	ƒ  tjj|jd}
+||
+_|
+j	ƒ  nd}tjj
+ƒ }|||||dœ}t| d|ƒS )NÚ	recipientÚcredit)r   TF)Ústatusr   r   r   r	   zconfirmation.html)ÚPOSTÚgetr   r
+   r   r   Úcurrent_creditÚintr   Úsaver   r   )r   r   r   r   ÚsenderÚreceiverZUpdatedReceiverCreditZUpdatedSenderCreditr   ZUpdateSenderZUpdateReceiverr	   r   r   r   r   Úconfirmation   s,    
+
+r   N)	Zdjango.shortcutsr   r   Zmanager.modelsr   r   r   r   r   r   r   r   r   Ú<module>   s
+   	

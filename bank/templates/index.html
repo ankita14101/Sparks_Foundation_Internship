@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | Basic Banking System App{% endblock title %}
+{% block homeactive %}active{% endblock homeactive %}
+{% block style %}
+<style>
+  body {
+  background-image:url('https://images.unsplash.com/photo-1567427013953-88102117053a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJhbmt8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+  background-repeat: no-repeat;
+background-size: cover;
+
+}
+.fancy{
+  font-weight:light;
+}
+.container-fluid{
+ font-size:20px;
+}
+.features1
+{
+	text-align: center;
+	padding: 10% 15%;
+}
+
+
+/*---service section---*/
+#features1
+{
+	text-align: center;
+	padding: 10% 15%;
+}
+ 
+  #main
+{
+	text-align: center;
+background-color:black;
+color:#fff;
+padding-top:5%;	
+}
+.container h1 {
+	padding-bottom: 10px;
+}
+/* footer */
+#footer{
+	background-color:black;
+    color:#fff;
+    padding: 4% 25%;
+    text-align: center;
+}
+</style>
+{% endblock style %}
+
+{% block body %}
+<div class="container-fluid" style = "background-color:rgba(10, 60, 0,0.6);background-size: 100%;>
+    <section id="main" class="coloured-section">
+  <div class="container">
+    <h1 style=text-align:center;">
+      Welcome To The Sparks Foundation Bank!!
+    </h1>
+  </div>
+</section>
+<hr>
+</div>
+  <section id="features1" class="white-section">
+    <div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="https://images.unsplash.com/photo-1423666523292-b458da343f6a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OXx8YmFua3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><em><mark>Honest Promise</mark></em></h5>
+      <p class="card-text"><em><mark>We provide you to instant send the money to another user you want.<mark></em></p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFua3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><em><mark>Transfer money.</mark></em></h5>
+      <p class="card-text"><em><mark>We promise people for quickly accessing or transfering their money on time.</mark></em></p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8YmFua3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><em><mark>What do we do</mark></em></h5>
+      <p class="card-text"><em><mark>Transfer money from one account to another account</mark></em></p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+</div>
+</section>
+    <!---Action -->
+    <div style=text-align:center;top:20px;bottom:50px;>
+    <a class="btn btn-dark btn-lg" href="/transfer_credit" role="button" >Transfer Money</a>
+  
+{% endblock body %}
+</div>

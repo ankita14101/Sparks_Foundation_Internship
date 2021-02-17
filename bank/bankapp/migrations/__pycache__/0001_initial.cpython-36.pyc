@@ -1,0 +1,9 @@
+3
+dZ._p  ã               @   s&   d dl mZmZ G dd„ dejƒZdS )é    )Ú
+migrationsÚmodelsc            	   @   s^   e Zd ZdZg Zejddejdddddfdej	dd	fd
+ej
+dd	fdejƒ fgdgZdS )Ú	MigrationTÚUserÚidFÚID)Úauto_createdÚprimary_keyÚ	serializeÚverbose_nameÚnameé(   )Ú
+max_lengthÚemailÚcurrent_credit)r   ÚfieldsN)Ú__name__Ú
+__module__Ú__qualname__ÚinitialÚdependenciesr   ÚCreateModelr   Ú	AutoFieldÚ	CharFieldÚ
+EmailFieldÚIntegerFieldÚ
+operations© r   r   úWC:\Users\diksh\django projects\creditTransferManager\manager\migrations\0001_initial.pyr      s   r   N)Ú	django.dbr   r   r   r   r   r   r   Ú<module>   s   

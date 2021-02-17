@@ -1,0 +1,14 @@
+3
+w[._^  ã               @   s"   d dl mZ G dd„ dejƒZdS )é    )Úmodelsc               @   s4   e Zd ZejddZejddZejƒ Z	dd„ Z
+dS )ÚUseré(   )Ú
+max_lengthc             C   s   | j d t| jƒ S )Nz | Credit: )ÚnameÚstrÚcurrent_credit)Úself© r
+   úFC:\Users\diksh\django projects\creditTransferManager\manager\models.pyÚ__str__
+   s    zUser.__str__N)Ú__name__Ú
+__module__Ú__qualname__r   Ú	CharFieldr   Ú
+EmailFieldÚemailÚIntegerFieldr   r   r
+   r
+   r
+   r   r      s   r   N)Ú	django.dbr   ÚModelr   r
+   r
+   r
+   r   Ú<module>   s   

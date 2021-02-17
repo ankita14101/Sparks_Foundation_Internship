@@ -1,0 +1,7 @@
+U
+    	¥_§  ã                   @   s&   d dl mZmZ G dd„ dejƒZdS )é    )Ú
+migrationsÚmodelsc                   @   s.   e Zd ZdgZejddejddddgZdS )	Ú	Migration)ÚbankappÚ0001_initialÚuserÚageé   )ÚdefaultF)Ú
+model_nameÚnameÚfieldÚpreserve_defaultN)	Ú__name__Ú
+__module__Ú__qualname__Údependenciesr   ÚAddFieldr   ÚIntegerFieldÚ
+operations© r   r   úUC:\Users\Naman\Desktop\Git pushed 2\Publish2\bank\bankapp\migrations\0002_user_age.pyr      s   ÿ
+üÿr   N)Ú	django.dbr   r   r   r   r   r   r   Ú<module>   s   

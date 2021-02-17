@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Transfer Money |  Basic Banking System App{% endblock title %}
+{% block transferactive %}active{% endblock transferactive %}
+
+{% block style %}
+<style>
+  body{
+    background-image:url('https://images.unsplash.com/photo-1488998527040-85054a85150e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-repeat: repeat;
+    background-size: cover;
+  }
+    /* @media only screen and (min-width: 768px)   { */
+        .table {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            text-color:white;
+        }
+
+
+          th,td{  border: 4px solid black;
+            pading: 10px;
+            text-color:white;
+          }
+          h1{
+            text-align: center;
+            font-weight:bold;
+            color:#ffcc00;
+            font-family: "Times New Roman", Times, serif;
+            font-size:50px;
+            font-style:italic
+          }
+          .para{
+              font-family: "Times New Roman", Times, serif;
+              color:black;
+              font-size:20px;
+          }
+
+</style>
+{% endblock style %}
+
+{% block body %}
+<div class="container my-3">
+    <h1 class="text-center"><b>User Account List</b></h1>
+    <div class="container my-3 mt-3 userlist" ">
+      <div class="table-responsive">
+        <table class="table table-hover table-dark  my-5 mb-5 pb-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th  scope="col">Name</th>
+                      <th  scope="col">Age</th>
+                    <th scope="col">Email-Id</th>
+                    <th scope="col">Initial Balance</th>
+                    <th scope="col" style="text-align:center">Click</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td style=font-weight:bold;font-style:italic;font-color:white;><a href="/user/{{user.name}}">{{user.name}}</a></td>
+                      <td style=font-weight:bold;font-style:italic>{{user.age}}</td>
+                        <td style=font-weight:bold;font-style:italic>{{user.email}}</td>
+                    <td style=font-weight:bold;font-style:italic>{{user.current_credit}}</td>
+                    <td class="text-center align-middle"><a href="/user/{{user.name}}"> <button type="button" class="btn btn-outline-light btn-sm">Select</button></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+          </div>
+    </div>
+</div>
+{% endblock body %}
